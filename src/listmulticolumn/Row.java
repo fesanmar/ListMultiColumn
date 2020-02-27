@@ -33,8 +33,8 @@ public class Row
 	}
 	
 	/**
-	 * Creates a row with the specified separator and an empty ArrayList<Cell>.
-	 * @param separator
+	 * Creates a row with the specified separator and an empty ArrayList.
+	 * @param separator The separator that used to differentiate row cells.
 	 */
 	public Row(String separator)
 	{
@@ -129,7 +129,7 @@ public class Row
 	/**
 	 * @param i The index of the cell in the row, starting with 1.
 	 * @return The cell in te position <b>i</b>, starting with 1.
-	 * @throws IndexOutOfBoundsException
+	 * @throws IndexOutOfBoundsException if i is out of range.
 	 */
 	public Cell getCell(int i) throws IndexOutOfBoundsException
 	{
