@@ -12,6 +12,7 @@ public class Cell
 	private int size;
 	private String data;
 	private String columnName;
+	private ContentAlign align;
 	
 	/**
 	 * Creates an empty cell.
@@ -21,6 +22,7 @@ public class Cell
 		size = 0;
 		data = "";
 		columnName = "";
+		align = new LeftAlign();
 	}
 	
 	/**
@@ -33,6 +35,7 @@ public class Cell
 		setSize(size);
 		data = "";
 		columnName = "";
+		align = new LeftAlign();
 	}
 	
 	/**
@@ -44,6 +47,19 @@ public class Cell
 		size = SIZE;
 		this.data = (data != null) ? data : "";
 		columnName = "";
+		align = new LeftAlign();
+	}
+	
+	/**
+	 * Creates a cell with the specified align, no data and 10 chars of capacity.
+	 * @param align The align for the cell.
+	 */
+	public Cell(ContentAlign align)
+	{
+		size = SIZE;
+		this.data = "";
+		columnName = "";
+		this.align = align; 
 	}
 	
 	/**
@@ -57,12 +73,13 @@ public class Cell
 		setSize(size);
 		this.data = (data != null) ? data : "";
 		columnName = "";
+		align = new LeftAlign();
 	}
 	
 	/**
 	 * Creates a cell with the specified size, data and column name.
 	 * @param size The number of chars for the cell. It's set to 0 if the 
-	 * sepcified value is under 0.
+	 * specified value is under 0.
 	 * @param data The data within the cell.
 	 * @param columnName The name of the column to which the cell belongs.
 	 */
@@ -71,6 +88,22 @@ public class Cell
 		setSize(size);
 		this.data = (data != null) ? data : "";
 		this.columnName = columnName;
+		align = new LeftAlign();
+	}
+	
+	/**
+	 * Creates a cell with the specified size, data and column name.
+	 * @param size The number of chars for the cell. It's set to 0 if the 
+	 * specified value is under 0.
+	 * @param data The data within the cell.
+	 * @param columnName The name of the column to which the cell belongs.
+	 */
+	public Cell(int size, String data, String columnName, ContentAlign align)
+	{
+		setSize(size);
+		this.data = (data != null) ? data : "";
+		this.columnName = columnName;
+		this.align = align;
 	}
 	
 	/**
@@ -124,6 +157,24 @@ public class Cell
 	}
 
 	/**
+	 * Get the align of the cell.
+	 * @return the align
+	 */
+	public ContentAlign getAlign()
+	{
+		return align;
+	}
+
+	/**
+	 * Set a align for the cell.
+	 * @param align the align to set.
+	 */
+	public void setAlign(ContentAlign align)
+	{
+		this.align = align;
+	}
+
+	/**
 	 * @return String the cell with the specified data and size.
 	 */
 	public String getView()
@@ -131,15 +182,14 @@ public class Cell
 		String cell;
 		// general format specifier:
 		// %[argument_index$][flags][width][.precision]conversion
-		if (data.length() > size)
+		if (data.length() >= size)
 		{
 			// "." is for precision, max number of chars to be written
 			cell = String.format("%." + size + "s", data);			
 		}
 		else
 		{
-			// The flag "-" --> output left-justified
-			cell = String.format("%-" + size + "s", data);
+			cell = align.getView(this);
 		}
 		return cell;
 	}

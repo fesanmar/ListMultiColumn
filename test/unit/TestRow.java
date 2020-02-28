@@ -36,11 +36,11 @@ class TestRow
 	@Test
 	final void testGetView2()
 	{
-		row.add(new Cell(10, "Hello"));
+		row.add(new Cell(10, "Hello", "Name"));
 		row.add(new Cell(10, "World"));
 		fRow = row.getView();
-		// System.out.println(fRow);
-		assertEquals("Hello     |World     ", fRow);
+		System.out.println(fRow);
+		assertEquals("Hello     | World     ", fRow);
 	}
 
 	@Test

@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class Row
 {
 	ArrayList<Cell> cells;
-	String separator = "|";
+	String separator = "| ";
 
 	/**
 	 * Creates an empty row.
