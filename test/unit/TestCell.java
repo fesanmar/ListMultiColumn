@@ -36,7 +36,8 @@ class TestCell
 		return Stream.of(
 				Arguments.arguments(2, "Hello", "He"),
 				Arguments.arguments(10, "Hello","Hello     "),
-				Arguments.arguments(0, "Hello", "")
+				Arguments.arguments(0, "Hello", ""),
+				Arguments.arguments(10, null, "          ")
 				);
 	}
 	

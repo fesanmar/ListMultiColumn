@@ -42,7 +42,7 @@ public class Cell
 	public Cell(String data)
 	{
 		size = SIZE;
-		this.data = data;
+		this.data = (data != null) ? data : "";
 		columnName = "";
 	}
 	
@@ -55,7 +55,7 @@ public class Cell
 	public Cell(int size, String data)
 	{
 		setSize(size);
-		this.data = data;
+		this.data = (data != null) ? data : "";
 		columnName = "";
 	}
 	
@@ -69,7 +69,7 @@ public class Cell
 	public Cell(int size, String data, String columnName)
 	{
 		setSize(size);
-		this.data = data;
+		this.data = (data != null) ? data : "";
 		this.columnName = columnName;
 	}
 	
@@ -104,7 +104,7 @@ public class Cell
 	 */
 	public void setData(String data)
 	{
-		this.data = data;
+		this.data = (data != null) ? data : "";
 	}
 	
 	/**
