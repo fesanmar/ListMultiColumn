@@ -45,7 +45,7 @@ public class Cell
 	public Cell(String data)
 	{
 		size = SIZE;
-		this.data = (data != null) ? data : "";
+		setData(data);
 		columnName = "";
 		align = new LeftAlign();
 	}
@@ -71,7 +71,7 @@ public class Cell
 	public Cell(int size, String data)
 	{
 		setSize(size);
-		this.data = (data != null) ? data : "";
+		setData(data);
 		columnName = "";
 		align = new LeftAlign();
 	}
@@ -86,7 +86,7 @@ public class Cell
 	public Cell(int size, String data, String columnName)
 	{
 		setSize(size);
-		this.data = (data != null) ? data : "";
+		setData(data);
 		this.columnName = columnName;
 		align = new LeftAlign();
 	}
@@ -101,7 +101,7 @@ public class Cell
 	public Cell(int size, String data, String columnName, ContentAlign align)
 	{
 		setSize(size);
-		this.data = (data != null) ? data : "";
+		setData(data);
 		this.columnName = columnName;
 		this.align = align;
 	}
