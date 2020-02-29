@@ -115,7 +115,7 @@ public class Cell
 	}
 	
 	/**
-	 * @param size The capacity of the cell. It's set to 0 if the sepcified value is
+	 * @param size The capacity of the cell. It's set to 0 if the specified value is
 	 * under 0.
 	 */
 	public void setSize(int size)
