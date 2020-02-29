@@ -27,9 +27,9 @@ public class Row
 	 * Creates a row with specified cells.
 	 * @param cells The cells that make up the row.
 	 */
-	public Row(ArrayList<Cell> cells)
+	public Row(Cell[] cells)
 	{
-		this.cells = new ArrayList<Cell>(cells);
+		setCells(cells);
 	}
 	
 	/**
@@ -47,26 +47,27 @@ public class Row
 	 * @param cells The cells that make up the row.
 	 * @param separator The separator that used to differentiate row cells.
 	 */
-	public Row(ArrayList<Cell> cells, String separator)
+	public Row(Cell[] cells, String separator)
 	{
-		this.cells = new ArrayList<Cell>(cells);
+		setCells(cells);
 		this.separator = separator;
 	}
 
 	/**
 	 * @return the cells
 	 */
-	public ArrayList<Cell> getCells()
+	public Cell[] getCells()
 	{
-		return cells;
+		return (Cell[]) cells.toArray();
 	}
 
 	/**
 	 * @param cells Set the cells with the specified ArrayList of Cells.
 	 */
-	public void setCells(ArrayList<Cell> cells)
+	public void setCells(Cell[] cells)
 	{
-		this.cells = new ArrayList<Cell>(cells);
+		this.cells = new ArrayList<Cell>();
+		addAll(cells);
 	}
 	
 	/**
@@ -103,10 +104,12 @@ public class Row
 	 * @param cells A collection of cells.
 	 * @return <b>true</b> if this collection changed as a result of the call.
 	 */
-	public boolean addAll(ArrayList<Cell> cells)
+	public void addAll(Cell[] cells)
 	{
-		boolean r = this.cells.addAll(cells);
-		return r;
+		for (int i = 0; i < cells.length; i++)
+		{
+			this.cells.add(cells[i]);
+		}
 	}
 	
 	/**
