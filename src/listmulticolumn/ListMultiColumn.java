@@ -1,5 +1,6 @@
 package listmulticolumn;
 
+import java.awt.Font;
 import java.awt.List;
 import java.util.ArrayList;
 
@@ -9,35 +10,43 @@ import java.util.ArrayList;
  * @author Felipe Santa-Cruz
  *
  */
-@SuppressWarnings("serial")
 public class ListMultiColumn extends List
 {
-	private ArrayList<Row> listRows;
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Row> listedRows;
+	
+	private void setFont()
+	{
+		super.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
+	}
 
 	public ListMultiColumn()
 	{
 		super();
-		listRows = new ArrayList<Row>();
+		setFont();
+		listedRows = new ArrayList<Row>();
 	}
 
 	public ListMultiColumn(int rows)
 	{
 		super(rows);
-		listRows = new ArrayList<Row>();
+		setFont();
+		listedRows = new ArrayList<Row>();
 	}
 
 	public ListMultiColumn(int rows, boolean multipleMode)
 	{
 		super(rows, multipleMode);
-		listRows = new ArrayList<Row>();
+		setFont();
+		listedRows = new ArrayList<Row>();
 	}
 
 	/**
 	 * @return the row elements that compose the list.
 	 */
-	public Row[] getListRows()
+	public Row[] getListedRows()
 	{
-		return (Row[]) listRows.toArray();
+		return (Row[]) listedRows.toArray();
 	}
 
 	/**
@@ -47,7 +56,7 @@ public class ListMultiColumn extends List
 	public void add(Row row)
 	{
 		super.add(row.getView());
-		listRows.add(row);
+		listedRows.add(row);
 	}
 
 	/**
@@ -62,7 +71,7 @@ public class ListMultiColumn extends List
 	public void add(Row row, int index)
 	{
 		super.add(row.getView(), index);
-		listRows.add(index, row);
+		listedRows.add(index, row);
 	}
 
 	/**
@@ -72,7 +81,7 @@ public class ListMultiColumn extends List
 	public Row getSelectedRow() throws IndexOutOfBoundsException
 	{
 		int i = getSelectedIndex();
-		return listRows.get(i);
+		return listedRows.get(i);
 	}
 
 	/**
@@ -85,7 +94,7 @@ public class ListMultiColumn extends List
 		Row[] rows = new Row[size];
 		for (int i = 0; i < size; i++)
 		{
-			rows[i] = listRows.get(indexes[i]);
+			rows[i] = listedRows.get(indexes[i]);
 		}
 		return rows;
 	}
