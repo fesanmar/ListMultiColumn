@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class Row
 {
 	ArrayList<Cell> cells;
-	String separator = "| ";
+	String separator = " ";
 
 	/**
 	 * Creates an empty row.
@@ -131,7 +131,7 @@ public class Row
 	
 	/**
 	 * @param i The index of the cell in the row, starting with 1.
-	 * @return The cell in te position <b>i</b>, starting with 1.
+	 * @return The cell in the position <b>i</b>, starting with 1.
 	 * @throws IndexOutOfBoundsException if i is out of range.
 	 */
 	public Cell getCell(int i) throws IndexOutOfBoundsException
