@@ -40,7 +40,7 @@ class TestRow
 		row.add(new Cell(10, "World"));
 		fRow = row.getView();
 		System.out.println(fRow);
-		assertEquals("Hello     | World     ", fRow);
+		assertEquals("Hello      World     ", fRow);
 	}
 
 	@Test
