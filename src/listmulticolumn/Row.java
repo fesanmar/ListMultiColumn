@@ -118,13 +118,7 @@ public class Row
 	public String getView()
 	{
 		String row = "";
-//		Iterator<Cell> i = cells.iterator();
-//		while (i.hasNext())
-//		{
-//			Cell cell = i.next();
-//			if (i.hasNext()) row += cell.getView() + separator;				
-//			else row += cell.getView();
-//		}
+
 		for (int i = 0; i < cells.size(); i++)
 		{
 			int nextSize;
