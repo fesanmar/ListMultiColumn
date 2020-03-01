@@ -1,5 +1,3 @@
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -10,8 +8,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
-import javax.xml.soap.Text;
 
 import listmulticolumn.Cell;
 import listmulticolumn.ContentAlign;
