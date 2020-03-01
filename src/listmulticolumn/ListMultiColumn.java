@@ -48,6 +48,39 @@ public class ListMultiColumn extends List
 	{
 		return (Row[]) listedRows.toArray();
 	}
+	
+	/**
+	 * Adds the specified item to the end of scrolling list. It creates a Row with only
+	 * one cell. The size of cell will be the leng of the arg0
+	 * @param arg0 The text that will be added as row to the list.
+	 */
+	@Override
+	public void add(String arg0)
+	{
+		Cell cell = new Cell(arg0.length(), arg0);
+		Row row = new Row();
+		row.add(cell);
+		this.add(row);
+	}
+	
+	/**
+	 * Adds the specified item to the the scrolling list at the position indicated by
+	 * the index. The index is zero-based. If the value of the index is less than
+	 * zero,or if the value of the index is greater than or equal to the number of
+	 * items in the list, then the item is added to the end of the list.
+	 * 
+	 * @param arg0 The row you want to add.
+	 * @param index the position at which to add the item.
+	 */
+	@Override
+	public void add(String arg0, int index)
+	{
+		Cell cell = new Cell(arg0.length(), arg0);
+		Row row = new Row();
+		row.add(cell);
+		this.add(row, index);
+	}
+	
 
 	/**
 	 * Adds the specified item to the end of scrolling list.
@@ -60,12 +93,13 @@ public class ListMultiColumn extends List
 	}
 
 	/**
-	 * Adds the specified item to the the scrolling listat the position indicated by
-	 * the index. The index iszero-based. If the value of the index is less than
-	 * zero,or if the value of the index is greater than or equal tothe number of
-	 * items in the list, then the item is addedto the end of the list.
+	 * Adds the specified item to the the scrolling list at the position indicated by
+	 * the index. The index is zero-based. If the value of the index is less than
+	 * zero,or if the value of the index is greater than or equal to the number of
+	 * items in the list, then the item is added to the end of the list.
 	 * 
-	 * @param row The row you want to add.
+	 * @param row The text used to create the cell that will be inserted into the row
+	 * and, finally, into the ListMultiColumn.
 	 * @param index the position at which to add the item.
 	 */
 	public void add(Row row, int index)
