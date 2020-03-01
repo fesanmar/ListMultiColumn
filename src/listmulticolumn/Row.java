@@ -1,7 +1,6 @@
 package listmulticolumn;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Represents a row composed of cells
@@ -119,12 +118,32 @@ public class Row
 	public String getView()
 	{
 		String row = "";
-		Iterator<Cell> i = cells.iterator();
-		while (i.hasNext())
+//		Iterator<Cell> i = cells.iterator();
+//		while (i.hasNext())
+//		{
+//			Cell cell = i.next();
+//			if (i.hasNext()) row += cell.getView() + separator;				
+//			else row += cell.getView();
+//		}
+		for (int i = 0; i < cells.size(); i++)
 		{
-			Cell cell = i.next();
-			if (i.hasNext()) row += cell.getView() + separator;				
-			else row += cell.getView();
+			int nextSize;
+			try
+			{
+				 nextSize = cells.get(i + 1).getSize();
+			}
+			catch (IndexOutOfBoundsException e) 
+			{
+				nextSize = 1;
+			}
+			if (i != (cells.size() - 1) &&  nextSize > 0)
+			{
+				row += cells.get(i).getView() + separator;
+			}
+			else
+			{
+				row += cells.get(i).getView();
+			}
 		}
 		return row;
 	}
