@@ -14,11 +14,6 @@ public class ListMultiColumn extends List
 {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Row> listedRows;
-	
-	private void setFont()
-	{
-		super.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
-	}
 
 	public ListMultiColumn()
 	{
@@ -41,6 +36,11 @@ public class ListMultiColumn extends List
 		listedRows = new ArrayList<Row>();
 	}
 
+	private void setFont()
+	{
+		super.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
+	}
+	
 	/**
 	 * @return the row elements that compose the list.
 	 */
