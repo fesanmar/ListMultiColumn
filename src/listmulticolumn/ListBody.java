@@ -132,4 +132,28 @@ public class ListBody extends List
 		}
 		return rows;
 	}
+	
+	/**
+	 * Retrieve the data of the cell named as <b>columName</b> in the selected row.
+	 * @param columnName The name of the cell which data is wanted.
+	 * @return The cell's data inside the selected row
+	 */
+	public String getSelectedData(String columnName)
+	{
+		int i = getSelectedIndex();
+		return listedRows.get(i).getCell(columnName).getData();
+	}
+	
+	/**
+	 * Retrieve the data of the cell in the position specified by
+	 * <b>columnIndex</b>.
+	 * @param columnIndex The index of the cell in the row, starting with 1.
+	 * @return
+	 * @throws IndexOutOfBoundsException if <b>columnIndex</b> is out of range.
+	 */
+	public String getSelectedData(int columnIndex) throws IndexOutOfBoundsException
+	{
+		int i = getSelectedIndex();
+		return listedRows.get(i).getCell(columnIndex).getData();
+	}
 }

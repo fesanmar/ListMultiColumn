@@ -170,9 +170,9 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 	@Override
 	public void itemStateChanged(ItemEvent e)
 	{
-		txtLanguage.setText(listBody.getSelectedRow().getCell("Language").getData());
-		txtFramework.setText(listBody.getSelectedRow().getCell("Framework").getData());
-		txtVersion.setText(listBody.getSelectedRow().getCell("Version").getData());
+		txtLanguage.setText(listBody.getSelectedData("Language"));
+		txtFramework.setText(listBody.getSelectedData("Framework"));
+		txtVersion.setText(listBody.getSelectedData(3));
 		txaDescription.setText(listBody.getSelectedRow().getCell("Description").getData());
 	}
 
