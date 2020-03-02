@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import listmulticolumn.Cell;
-import listmulticolumn.ListMultiColumn;
+import listmulticolumn.ListBody;
 import listmulticolumn.Row;
 
 class TestListMultiColumn
@@ -45,13 +45,13 @@ class TestListMultiColumn
 						"Description")
 			}
 	};
-	ListMultiColumn lmc;
+	ListBody lmc;
 	
 	
 	@BeforeEach
 	void instanceListMultiColumn()
 	{
-		lmc = new ListMultiColumn();
+		lmc = new ListBody();
 	}
 	
 	@Test

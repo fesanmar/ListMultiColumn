@@ -10,20 +10,25 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import listmulticolumn.Cell;
+import listmulticolumn.CenterAlign;
 import listmulticolumn.ContentAlign;
 import listmulticolumn.LeftAlign;
-import listmulticolumn.ListMultiColumn;
+import listmulticolumn.ListBody;
+import listmulticolumn.ListColumns;
+import listmulticolumn.ListHead;
 import listmulticolumn.Row;
 
 public class ExpampleListMultiColumn extends Frame implements WindowListener, ItemListener
 {
 	private static final long serialVersionUID = 1L;
-	ListMultiColumn lmc = new ListMultiColumn(5, false);
+	ListBody listBody = new ListBody(5, false);
+	ListHead listHead = new ListHead();
+	ListColumns lmc;
 	final int cellSize1 = 9;
 	final int cellSize2 = 11;
 	final int cellSize3 = 8;
 	final int cellSize4 = 0;
-	// ContentAlign align = new CenterAlign();
+	ContentAlign alignHead = new CenterAlign();
 	ContentAlign align = new LeftAlign();
 	Cell[][] cells = {
 			{
@@ -69,7 +74,7 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 	public ExpampleListMultiColumn()
 	{
 		setSize(500, 300);
-		setResizable(false);
+		// setResizable(false);
 		setLayout(new GridLayout(1,2));
 		setTitle("Example");
 		setLocationRelativeTo(null);
@@ -77,10 +82,22 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 		for (Cell[] cellsRow : cells)
 		{
 			Row row = new Row(cellsRow);
-			lmc.add(row);
+			listBody.add(row);
 		}
-		
+		Row headRow = new Row();
+		Cell head1 = new Cell(cellSize1, "Language");
+		// head1.setAlign(alignHead);
+		headRow.add(head1);
+		Cell head2 = new Cell(cellSize2, "Framework");
+		// head2.setAlign(alignHead);
+		headRow.add(head2);
+		Cell head3 = new Cell(cellSize3, "Version");
+		// head3.setAlign(alignHead);
+		headRow.add(head3);
+		listHead.setHeadRow(headRow);
+		lmc = new ListColumns(listHead, listBody);
 		add(lmc);
+		
 		pnlForm.add(lblLanguaje);
 		pnlForm.add(txtLanguage);
 		pnlForm.add(lblFramewor);
@@ -92,7 +109,7 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 		add(pnlForm);
 		
 		addWindowListener(this);
-		lmc.addItemListener(this);
+		listBody.addItemListener(this);
 		
 		setVisible(true);
 	}
@@ -153,10 +170,10 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 	@Override
 	public void itemStateChanged(ItemEvent e)
 	{
-		txtLanguage.setText(lmc.getSelectedRow().getCell("Language").getData());
-		txtFramework.setText(lmc.getSelectedRow().getCell("Framework").getData());
-		txtVersion.setText(lmc.getSelectedRow().getCell("Version").getData());
-		txaDescription.setText(lmc.getSelectedRow().getCell("Description").getData());
+		txtLanguage.setText(listBody.getSelectedRow().getCell("Language").getData());
+		txtFramework.setText(listBody.getSelectedRow().getCell("Framework").getData());
+		txtVersion.setText(listBody.getSelectedRow().getCell("Version").getData());
+		txaDescription.setText(listBody.getSelectedRow().getCell("Description").getData());
 	}
 
 }

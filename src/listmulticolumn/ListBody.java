@@ -5,31 +5,31 @@ import java.awt.List;
 import java.util.ArrayList;
 
 /**
- * Represents a list with different columns.
+ * Represents a the body of a list with different columns.
  * 
  * @author Felipe Santa-Cruz
  *
  */
-public class ListMultiColumn extends List
+public class ListBody extends List
 {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Row> listedRows;
 
-	public ListMultiColumn()
+	public ListBody()
 	{
 		super();
 		setFont();
 		listedRows = new ArrayList<Row>();
 	}
 
-	public ListMultiColumn(int rows)
+	public ListBody(int rows)
 	{
 		super(rows);
 		setFont();
 		listedRows = new ArrayList<Row>();
 	}
 
-	public ListMultiColumn(int rows, boolean multipleMode)
+	public ListBody(int rows, boolean multipleMode)
 	{
 		super(rows, multipleMode);
 		setFont();
@@ -99,7 +99,7 @@ public class ListMultiColumn extends List
 	 * items in the list, then the item is added to the end of the list.
 	 * 
 	 * @param row The text used to create the cell that will be inserted into the row
-	 * and, finally, into the ListMultiColumn.
+	 * and, finally, into the ListBody.
 	 * @param index the position at which to add the item.
 	 */
 	public void add(Row row, int index)
