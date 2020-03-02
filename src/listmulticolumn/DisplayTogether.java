@@ -4,11 +4,11 @@ import java.awt.FlowLayout;
 import java.awt.Panel;
 
 /**
- * Represents a multicolumn list with a head and a body.
+ * Joins and display together the head of a list with his body.
  * @author Felipe Santa-Cruz
  *
  */
-public class ListColumns extends Panel
+public class DisplayTogether extends Panel
 {
 	private static final long serialVersionUID = 1L;
 	public ListHead head;
@@ -19,7 +19,7 @@ public class ListColumns extends Panel
 	 * @param head The head of the multicolumn list.
 	 * @param body The body of the multicolumn list
 	 */
-	public ListColumns(ListHead head, ListBody body)
+	public DisplayTogether(ListHead head, ListBody body)
 	{
 		super(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		this.head = head;

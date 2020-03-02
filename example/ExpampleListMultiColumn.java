@@ -14,7 +14,7 @@ import listmulticolumn.CenterAlign;
 import listmulticolumn.ContentAlign;
 import listmulticolumn.LeftAlign;
 import listmulticolumn.ListBody;
-import listmulticolumn.ListColumns;
+import listmulticolumn.DisplayTogether;
 import listmulticolumn.ListHead;
 import listmulticolumn.Row;
 
@@ -23,7 +23,7 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 	private static final long serialVersionUID = 1L;
 	ListBody listBody = new ListBody(5, false);
 	ListHead listHead = new ListHead();
-	ListColumns lmc;
+	DisplayTogether lmc;
 	final int cellSize1 = 9;
 	final int cellSize2 = 11;
 	final int cellSize3 = 8;
@@ -95,7 +95,7 @@ public class ExpampleListMultiColumn extends Frame implements WindowListener, It
 		// head3.setAlign(alignHead);
 		headRow.add(head3);
 		listHead.setHeadRow(headRow);
-		lmc = new ListColumns(listHead, listBody);
+		lmc = new DisplayTogether(listHead, listBody);
 		add(lmc);
 		
 		pnlForm.add(lblLanguaje);
