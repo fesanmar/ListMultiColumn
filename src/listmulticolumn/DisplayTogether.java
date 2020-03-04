@@ -1,6 +1,7 @@
 package listmulticolumn;
 
-import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Panel;
 
 /**
@@ -21,10 +22,14 @@ public class DisplayTogether extends Panel
 	 */
 	public DisplayTogether(ListHead head, ListBody body)
 	{
-		super(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		super(new GridBagLayout());
 		this.head = head;
 		this.body = body;
-		add(head);
-		add(body);
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		add(head, constraints);
+		constraints.gridy = 1;
+		add(body, constraints);
 	}
 }
