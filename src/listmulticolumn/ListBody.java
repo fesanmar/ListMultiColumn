@@ -49,6 +49,14 @@ public class ListBody extends List
 		return (Row[]) listedRows.toArray();
 	}
 	
+	@Override
+	public void removeAll()
+	{
+		super.removeAll();
+		listedRows.clear();
+	}
+	
+	
 	/**
 	 * Adds the specified item to the end of scrolling list. It creates a Row with only
 	 * one cell. The size of cell will be the leng of the arg0
