@@ -26,6 +26,7 @@ public class DisplayTogether extends Panel
 		this.head = head;
 		this.body = body;
 		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.gridx = 0;
 		constraints.gridy = 0;
 		add(head, constraints);
