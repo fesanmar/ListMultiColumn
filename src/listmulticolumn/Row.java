@@ -57,7 +57,12 @@ public class Row
 	 */
 	public Cell[] getCells()
 	{
-		return (Cell[]) cells.toArray();
+		Cell[] cellsArray = new Cell[cells.size()];
+		for (int i = 0; i < cells.size(); i++)
+		{
+			cellsArray[i] = cells.get(i);
+		}
+		return cellsArray;
 	}
 
 	/**

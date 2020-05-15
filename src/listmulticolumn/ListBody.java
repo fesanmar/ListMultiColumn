@@ -46,7 +46,12 @@ public class ListBody extends List
 	 */
 	public Row[] getListedRows()
 	{
-		return (Row[]) listedRows.toArray();
+		Row[] rows = new Row[listedRows.size()];
+		for (int i = 0; i < listedRows.size(); i++)
+		{
+			rows[i] = listedRows.get(i);
+		}
+		return rows;
 	}
 	
 	@Override
